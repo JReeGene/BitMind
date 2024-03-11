@@ -38,7 +38,7 @@ const index = ()=>{
           loader, } = useContext(CONTEXT)
 
   //STATE VARIABLES
-  const [activeComponent, setActiveComponent] = useState('Signup');
+  const [activeComponent, setActiveComponent] = useState('Home');
   const [membershipType, setMembershipType] = useState('Premium');
   const [authBackEndID, setAuthBackEndID] = useState('');
   const [Networks, setNetworks] = useState({});
