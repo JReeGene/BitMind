@@ -8,4 +8,4 @@ const MovingSubmenu = () => {
   );
 };
 
-export default MovingSubmenu
+export default MovingSubmenu;
