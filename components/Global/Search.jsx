@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Search = () => {
-  return <div className='techwave_fn_searchbar'>
+  return <div className='bitmind_fn_searchbar'>
       <div className='search__bar'>
         <input type="text" 
         className='search__input'
@@ -18,7 +18,7 @@ const Search = () => {
         </span>
       </div>
       <div className='search__results'>
-        <div className='results_title'>Results</div>
+        <div className='results_title'>RESULTS</div>
         <div className='results__list'>
           <ul>
             <li>
@@ -28,10 +28,10 @@ const Search = () => {
               <a href="#">Learn about the impact of AI crypto trading bot</a>
             </li>
             <li>
-              <a href="#">Welcome to BitMind developer guide </a>
+              <a href="#">Welcome to BitMind Developers' Guide </a>
             </li>
             <li>
-              <a href="#">Take the blocakchain advanced developer course Intelligence</a>
+              <a href="#">Take the Blockchain Advanced Developer course</a>
             </li>
           </ul>
         </div>

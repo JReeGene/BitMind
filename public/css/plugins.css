@@ -173,36 +173,36 @@ table {
   border-collapse: collapse;
   border-spacing: 0px;
   margin-bottom: 15px;
-  color: var(--techwave-body-color);
-  border: 1px solid var(--techwave-border-color);
+  color: var(--bitmind-body-color);
+  border: 1px solid var(--bitmind-border-color);
 }
 
 table tr {
-  border: 1px solid var(--techwave-border-color);
+  border: 1px solid var(--bitmind-border-color);
 }
 
 table th {
   vertical-align: top;
-  color: var(--techwave-heading-color);
+  color: var(--bitmind-heading-color);
   background: 0 0;
   font-size: 16px;
   font-weight: 400;
   padding: 15px 10px;
-  border: 1px solid var(--techwave-border-color);
+  border: 1px solid var(--bitmind-border-color);
 }
 
 table td {
   vertical-align: top;
   padding: 10px;
-  border: 1px solid var(--techwave-border-color);
+  border: 1px solid var(--bitmind-border-color);
 }
 
 code,
 pre {
   padding: 10px;
-  border-left: 3px solid var(--techwave-main-color);
+  border-left: 3px solid var(--bitmind-main-color);
   border-bottom: 1px solid transparent;
-  background: var(--techwave-some-a-bg-color);
+  background: var(--bitmind-some-a-bg-color);
   overflow-x: auto;
 }
 
@@ -219,9 +219,9 @@ pre code {
 textarea {
   outline: none;
   font-size: 16px;
-  color: var(--techwave-heading-color);
+  color: var(--bitmind-heading-color);
   resize: vertical;
-  font-family: var(--techwave-heading-font-family);
+  font-family: var(--bitmind-heading-font-family);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -230,7 +230,7 @@ textarea {
   padding: 10px;
   width: 100%;
   border-radius: 5px;
-  border: 2px solid var(--techwave-border-color);
+  border: 2px solid var(--bitmind-border-color);
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
@@ -256,18 +256,18 @@ input[type="url"],
 input[type="week"] {
   font-size: 16px;
   min-width: 220px;
-  color: var(--techwave-heading-color);
+  color: var(--bitmind-heading-color);
   letter-spacing: 0.5px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: var(--techwave-heading-font-family);
+  font-family: var(--bitmind-heading-font-family);
   line-height: 1.6;
   padding: 10px 20px;
   height: 40px;
   vertical-align: middle;
-  border: 2px solid var(--techwave-border-color);
+  border: 2px solid var(--bitmind-border-color);
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
@@ -294,7 +294,7 @@ input[type="time"]:focus,
 input[type="url"]:focus,
 input[type="week"]:focus,
 textarea:focus {
-  border-color: var(--techwave-main-color);
+  border-color: var(--bitmind-main-color);
 }
 
 input[type="submit"] {
@@ -323,7 +323,7 @@ input[type="submit"]:hover {
 
 select {
   padding: 8px;
-  border: 2px solid var(--techwave-border-color);
+  border: 2px solid var(--bitmind-border-color);
 }
 
 input[type="button"] {
@@ -954,7 +954,7 @@ input[type="button"] {
 .tooltipster-sidetip.tooltipster-punk .tooltipster-box {
   border-radius: 5px;
   border: none;
-  border-bottom: 3px solid var(--techwave-main-color);
+  border-bottom: 3px solid var(--bitmind-main-color);
   background: #2a2a2a;
 }
 
@@ -988,7 +988,7 @@ input[type="button"] {
 
 .tooltipster-sidetip.tooltipster-punk.tooltipster-top
   .tooltipster-arrow-border {
-  border-top-color: var(--techwave-main-color);
+  border-top-color: var(--bitmind-main-color);
 }
 
 .tooltipster-sidetip.tooltipster-shadow .tooltipster-box {

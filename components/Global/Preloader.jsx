@@ -2,7 +2,7 @@ import React from 'react'
 
 const Preloader = () => {
   return (
-    <div className='techwave_fn_preloader enabled'>
+    <div className='bitmind_fn_preloader enabled'>
       <svg>
         <circle 
           className='first_circle'

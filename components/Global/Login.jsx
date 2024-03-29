@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import Footer from '../Global/Footer';
 
-const Login = ({setActiveComponent, axios, notifyError, notifySuccess}) => {
+const Login = ({ setActiveComponent, axios, notifyError, notifySuccess }) => {
   const [user, setUser] = useState({
-    password: "",
+    password: '',
   });
 
   const handleFormFieldChange = (fieldName, e)=>{
@@ -11,15 +12,15 @@ const Login = ({setActiveComponent, axios, notifyError, notifySuccess}) => {
   
   const apiLogin = async(e)=>{
     e.preventDefault()
-    if(user.email == "" ||user.password == "" )
+    if(user.email == '' ||user.password == '' )
       {
-        return notifyError("Please the correct email and password");
+        return notifyError('Please enter the correct email and password');
       }
-      notifySuccess("Login to your account in a few...");
+      notifySuccess('Login to your account in a few...');
       try{
         //API call
         const response = await axios({
-          method: "POST",
+          method: 'POST',
           url: `/api/v1/user/login`,
           withCredentials: true,
           data:{
@@ -29,7 +30,7 @@ const Login = ({setActiveComponent, axios, notifyError, notifySuccess}) => {
         })
 
         if(response.data.status === 'success'){
-          notifySuccess('Account created successfully')
+          notifySuccess('Successful login')
           localStorage.setItem(
             'USER_MEMBERSHIP',
             response.data.data.user.membershipType
@@ -51,9 +52,14 @@ const Login = ({setActiveComponent, axios, notifyError, notifySuccess}) => {
       }
   };
   return (
-    <div className='techwave_fn_sign'>
+    <div className='bitmind_fn_sign'>
     <div className='sign__content'>
-      <h1 className='logo'>Designed by JRee</h1>
+      <h1 className ='fn__animated_text'
+          style={{
+                  textAlign: 'center',
+                  fontFamily: 'sans-serif',
+                  fontSize: '20px'}}>BITMIND
+      </h1>
       <form className='login'>
         <div className='form__content'>
           <div className='form__title'>Sign In</div>
@@ -69,7 +75,7 @@ const Login = ({setActiveComponent, axios, notifyError, notifySuccess}) => {
           </div>
           <div className='form__alternative'>
             <a onClick={(e)=>apiLogin(e)}
-            className='techwave_fn_button'            
+            className='bitmind_fn_button'            
             >
               <span>Log In</span>
             </a>
@@ -77,9 +83,12 @@ const Login = ({setActiveComponent, axios, notifyError, notifySuccess}) => {
         </div>         
       </form>
       <div className='sign__desc'>
-        <p>Not a Member?
-          <a onClick={()=>setActiveComponent('Signup')}>Sign Up</a>
+        <p>Not a User?
+          <a onClick={()=>setActiveComponent('Signup')}> Sign Up</a>
+          {/* CHECK ABOVE */}
         </p>
+        <br />
+        <Footer/>
       </div>
     </div>
   </div>

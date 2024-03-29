@@ -2,7 +2,7 @@ import React from 'react'
 
 const MovingSubmenu = () => {
   return (
-    <div className='techwave_fn_fixedsub'>
+    <div className='bitmind_fn_fixedsub'>
       <ul></ul>
     </div>
   );

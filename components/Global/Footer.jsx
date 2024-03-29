@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Footer = () => {
+const Footer = (setActiveComponent, axios) => {
   return (
-    <footer className='techwave_fn_footer'>
-      <div className='techwave_fn_footer_content'>
+    <footer className='bitmind_fn_footer'>
+      <div className='bitmind_fn_footer_content'>
         <div className='copyright'>
         <p>2024@BitMind</p>
         </div>
@@ -14,7 +14,7 @@ const Footer = () => {
             </li>
             <li>
               <a href="#">Privacy Policy</a>
-            </li>
+            </li>            
           </ul>
         </div>
       </div>

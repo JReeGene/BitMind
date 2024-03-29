@@ -1,18 +1,19 @@
 import React, {useState, useEffect} from 'react'
 
-const Header = ({networkName, setActiveComponent}) => {
-  const [userDetails, setUserDetails] = useState
-  ({});
+const Header = ({ networkName, setActiveComponent }) => {
+  const [userDetails, setUserDetails] = useState({});
   const [userMembership, setUserMembership] = useState();
+
   useEffect(()=>{
     const user = JSON.parse(localStorage.getItem('userProfile'));
-    const userMembership = localStorage.getItem('USER_MEMBERSHIP')
+    const userMembership = localStorage.getItem('USER_MEMBERSHIP');
+    
     setUserMembership(userMembership)
     setUserDetails(user);
   }, []);
   
   return (
-    <div className='techwave_fn_header'>
+    <div className='bitmind_fn_header'>
       <div className='header__left'>
         <div className='fn__token_info'>
           <span className='token_summary'>
@@ -20,12 +21,14 @@ const Header = ({networkName, setActiveComponent}) => {
             <span className='text'>{networkName}</span>
           </span>
           {
-            userMembership !== 'notMember' ? (
-              <a onClick={()=>setActiveComponent('Trading')} className='token_upgrade techwave_fn_button'>
+            userMembership == 'notMember' ? (
+              <a onClick={()=>
+                setActiveComponent('Trading')} 
+                className='token_upgrade bitmind_fn_button'>
                 <span>Start Trade</span>
               </a>
             ) : (
-              <a onClick={()=>setActiveComponent('Pricing')} className='token_upgrade techwave_fn_button'>
+              <a onClick={()=>setActiveComponent('Pricing')} className='token_upgrade bitmind_fn_button'>
                 <span>Upgrade</span>
               </a>
             )}
@@ -47,7 +50,8 @@ const Header = ({networkName, setActiveComponent}) => {
           <a onClick={()=> setActiveComponent('Profile')}
             className='user_opener fn__tootip'
           >
-            <img src={userDetails ?.image || 'img/crypto.png'} alt="" />
+            <img src={userDetails ?.image || 'img/light-logo.png'} alt="" 
+            />
           </a>
         </div>
       </div>

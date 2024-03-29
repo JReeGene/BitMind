@@ -1,18 +1,19 @@
-import React, {useState, useEffect} from 'react';
-import {FaRegCopy} from 'react-icons/fa6'
+import React, { useState, useEffect } from 'react';
+import { FaRegCopy } from 'react-icons/fa6';
+import toast from 'react-hot-toast';
 
-//Internal Import
-import {} from '../../utils/index';
-
+//INTERNAL IMPORTS
+import {shortenAddress} from '../../utils/index';
+import Footer from '../Global/Footer';
 
 const Trading = ({
   trading,
   tradingCount ,
   length,
   setTradingCount,
-  setActiveComponent,
-  notifyError,
+  setActiveComponent, 
   notifySuccess,
+  notifyError,
 }) => {
   const [activeNetwork, setActiveNetwork] = useState({});
   const [tokens, setTokens] = useState();
@@ -21,13 +22,14 @@ const Trading = ({
   const [liveTransaction, setLiveTransaction] = useState([]);
   const [userMembership, setUserMembership] = useState();
 
-  const tradeFrequency = 1000;
+  // const tradeFrequency = 3600 * 1000; //EVERY HOUR
+  const tradeFrequency = 3000; //EVERY 3 sec
 
   useEffect(()=>{
     const tokenLists = JSON.parse(localStorage.getItem('setTokens'));
     const active = JSON.parse(localStorage.getItem('activeNetwork'));
     const tokenPair = JSON.parse(localStorage.getItem('tokenPair'));
-    const user = JSON.parse(localStorage.getItem('USER_MEBERSHIP'));
+    const user = localStorage.getItem('USER_MEMBERSHIP');
 
     setUserMembership(user);
     setActiveNetwork(active);
@@ -35,18 +37,17 @@ const Trading = ({
     setTradeToken(tokenPair);
   }, []);
 
-  const selectTokenPair = () =>{
-    localStorage.setItem('tokenPair', JSON.stringify(tradeToken));
-  }
+  const selectTokenPair = ()=>{
+    localStorage.setItem('tokenPair', JSON.stringify(tradeToken))
+  };    
 
-  useEffect(()=>{
+  useEffect(()=>{    
     if(active){
       const yourFunction = () => {
-        // trading(activeNetwork, tradeToken);
-        notifySuccess('Transaction completed sucessfully!');
-        console.log('Function called every 1 minute');
+        trading(activeNetwork, tradeToken);
+        notifySuccess('Transaction completed...');
+        console.log('Function called every 1 hour');
       };
-
       const intervalId = setInterval(yourFunction, tradeFrequency);
       return () => clearInterval(intervalId);
     }
@@ -62,16 +63,16 @@ const Trading = ({
   }  
 
   return (
-    <div className='techwave_fn_content'>
-      <div className='techwave_fn_page'>
-        <div className='techwave_fn_user_profile_page'>
-          <div className='techwave_fn_pagetitle'>
+    <div className='bitmind_fn_content'>
+      <div className='bitmind_fn_page'>
+        <div className='bitmind_fn_user_profile_page'>
+          <div className='bitmind_fn_pagetitle'>
             <h2 className='title'>Trading Crypto</h2>
             <div className='container small'>
-              <div className='techwave_fn_user_profile'>
+              <div className='bitmind_fn_user_profile'>
                 <div className='user__profile'>
                   <div className='user_avatar'>
-                    <img src={activeNetwork?.image || 'img/crypto.png' } alt="" />
+                    <img src={activeNetwork?.image || 'img/light-logo.png' } alt="" />                    
                   </div>
                   <div className='user_details new_hide'>
                     <ul>
@@ -89,7 +90,7 @@ const Trading = ({
                           <h3 
                             className='title'>
                             {activeNetwork?.walletAddress == undefined ? 
-                            'Select Address' : activeNetwork.walletAddress}
+                            'Select Address' : shortenAddress(activeNetwork.walletAddress)}
                             <span onClick={()=>
                               navigator.clipboard.writeText
                               (activeNetwork?.walletAddress)}>
@@ -104,7 +105,7 @@ const Trading = ({
                           <h3 
                             className='title'>
                             {activeNetwork?.privateKey == undefined ? 
-                            'Select Address' : activeNetwork.privateKey}
+                            'Select Address' : shortenAddress(activeNetwork.privateKey)}
                             <span onClick={()=>
                               navigator.clipboard.writeText
                               (activeNetwork?.privateKey)}>
@@ -119,7 +120,7 @@ const Trading = ({
                           <h3 
                             className='title'>
                             {activeNetwork?.rpcUrl == undefined ? 
-                            'Select Address' : activeNetwork.rpcUrl}
+                            'Select Address' : shortenAddress(activeNetwork.rpcUrl)}
                             <span onClick={()=>
                               navigator.clipboard.writeText
                               (activeNetwork?.rpcUrl)}>
@@ -149,67 +150,72 @@ const Trading = ({
                     <p className='info'>{tradeToken?.network}</p>
                   </div>
                 </div>
-                <div className=''>
+                <div>
                   {
-                    userMembership !== 'notMember' ? (
+                    userMembership == 'notMember' ? (//Switch Subscriptions...
                       <>
-                      {
-                        active ? (
-                          <a onClick={()=> stopTrading()}
-                            className='techwave_fn_button'>
-                            Stop Bot
-                          </a>
-                        ) : (
+                        {
+                          active ? (
                           <a 
-                          onClick={()=>( 
-                            trading(activeNetwork, tradeToken), 
-                            setActive(true)
-                            )}
-                            className='techwave_fn_button'
+                            onClick={()=> stopTrading()}
+                              className='bitmind_fn_button'>
+                              Stop Bot
+                          </a>
+                          ) : (
+                          <a 
+                            onClick={()=>( 
+                              trading(activeNetwork, tradeToken), 
+                              setActive(true))
+                            }
+                              // notifySuccess('Transaction started...')
+                                                    
+                              className='bitmind_fn_button'
                             >
                             Start Trading
                           </a>
-                        )}
-                        
+                        )}                        
                       </>
-
-                    ) : (
-                        <a 
-                          onClick={()=>setActiveComponent('Pricing')}
-                            className='techwave_fn_button'
+                        ):(
+                          <a 
+                            onClick={()=>setActiveComponent('Pricing')}
+                            className='bitmind_fn_button'
                             >
                             Buy Membership
-                        </a>
-                    )}
+                          </a>
+                        )}
                 </div>
               </div>
             </div>
-            <div className='techwave_fn_pricing'>
+            <div className='bitmind_fn_pricing'>
               <div className='container'>
                 <div className='pricing__tabs'>
                   <div className='pricing__tab active'>
                     {/* MOBILE */}
                     {
-                      !liveTransaction == null ? (
+                      liveTransaction == null ? (
                         ''
                       ) : (
                         <div className='fn__mobile_pricing'>
                           <div className='pricing__item'>
                             <div className='pricing__item_holder'>
-                              <div className='pricing__ite__heading'>
+                              <div className='pricing__item__heading'>
                                 <h2 className='title'>Live Transaction...</h2>
                               </div>
                               {
                                 liveTransaction?.map((transaction, index)=>(
                                   <div key={index} className='pricing__item_list'>
                                     <div className='pricing__item_list_item'>
-                                      <h4 className='title'>{index + 1}. T_Amt: {transaction.targetRate}</h4>
-                                      <p className='desc'>
-                                        C_Amt: {transaction.currentRate}
+                                      <h4 className='title'>
+                                        {index + 1}. T_Amt: 
+                                        {transaction.targetRate}
+                                      </h4>
+                                      <p 
+                                        className='desc'>
+                                          C_Amt: 
+                                        {transaction.currentRate}
                                         {''}
                                       </p>
                                     </div>
-
                                   </div>
                                 ))
                               }
@@ -226,7 +232,8 @@ const Trading = ({
                               <div className='item'>
                                 <span className='title'>
                                   Live Transaction...
-                                </span></div>
+                                </span>
+                              </div>
                               <div className='item wide'></div>
                               {
                                 liveTransaction?.map((transaction, index)=>(
@@ -234,31 +241,33 @@ const Trading = ({
                                     <div className='new_flex'>
                                       <div className='item_col'>
                                         <span className='heading_text'>
-                                          {index + 1}. T_Amount: {transaction.targetRate}
+                                          {index + 1}. T_Amount: 
+                                          {transaction.targetRate}
                                         </span>
                                       </div>
                                       <div className='item_col'>
                                         <span className='option_text'>
-                                          {index + 1}. C_Amount: {transaction.currentRate}
+                                          {index + 1}. C_Amount: 
+                                          {transaction.currentRate}
                                         </span>
                                       </div>
                                       <div className='item_col'>
                                         <span 
-                                          onClick = {()=> navigator.clipboard.writeText(transaction.transactionHash)} className='heading_text'>
-                                          {index + 1}. Hash: {transaction.transactionHash}
-                                          <FaRegCopy/>
+                                          onClick = {()=> 
+                                            navigator.clipboard.writeText
+                                            (transaction.transactionHash)} 
+                                            className='option_text'>
+                                            {index + 1}. Hash: {transaction.transactionHash}
+                                            <FaRegCopy/>
                                         </span>
-                                      </div>
-                                      
+                                      </div>                                      
                                     </div>
                                   </div>
                                 ))
                               }
                             </div>
                           </div>
-                        )
-
-                      }
+                        )}
                   </div>
                 </div>
               </div>
@@ -266,6 +275,7 @@ const Trading = ({
           </div>
         </div>
       </div>
+    <Footer />
     </div>
   );
 }

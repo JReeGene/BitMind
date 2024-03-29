@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.post('/signup', authController.signUp)
 router.post('/login', authController.login)
-router.post('/buyMembership', authController.buyMembership)
+router.patch('/buyMembership', authController.buyMembership)
 
 module.exports = router;

@@ -1,37 +1,32 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
-//Internal Imports
+//INTERNAL IMPORTS
 import { Footer } from '../index'
 import { local } from 'web3modal';
 
-const TradeTokens = () => {
+function TradeTokens() {
   const [search, setSearch] = useState('');
-  const [searchItem, setSearchItem] = useState
-  (search);
+  const [searchItem, setSearchItem] = useState(search);
   const [tokens, setTokens] = useState([]);
   const [copyTokens, setCopyTokens] = useState([]);
-  const [tradeTokens, setTradeTokens] = useState({});
+  const [tradeToken, setTradeToken] = useState({});
   const [active, setActive] = useState();
 
   useEffect(()=>{
-    const tokenLists = JSON.parse(localStorage.
-    getItem('setTokens'));
-    const tokenPair = JSON.parse(localStorage.
-    getItem('tokenPair'));
+    const tokenLists = JSON.parse(localStorage.getItem('setTokens'));
+    const tokenPair = JSON.parse(localStorage.getItem('tokenPair'));
 
-    setTradeTokens(tokenPair);
-    setTokens(tokenLists)
-    setCopyTokens(tokenLists)
-
+    setTradeToken(tokenPair);
+    setTokens(tokenLists);
+    setCopyTokens(tokenLists);
     console.log(tokenLists);
   }, []);
 
   const onHandleSearch = (value)=>{
-    const filterTokens = tokens?.filter(({
-      network})=>
+    const filterTokens = tokens?.filter(({network})=>
       network.toLowerCase().includes(value.toLowerCase())
       );
-      if(filterTokens?.length ===0){
+      if(filterTokens?.length === 0){
         setTokens(copyTokens);
       }else{
         setTokens(filterTokens)
@@ -60,19 +55,19 @@ const TradeTokens = () => {
 
   const selectTokenPair = () => {
     localStorage.setItem('tokenPair', JSON.stringify 
-    (tradeTokens));
+    (tradeToken));
   };
   return (
-    <div className='techwave_fn_content'>
-      <div className='techwave_fn_page'>
-        <div className='techwave_fn_community_page'>
+    <div className='bitmind_fn_content'>
+      <div className='bitmind_fn_page'>
+        <div className='bitmind_fn_community_page'>
           <div className='fn__title_holder'>
             <div className='container'>
               <h1 className='title'>Tokens</h1>
             </div>
           </div>
 
-          <div className='techwave_fn_feed'>
+          <div className='bitmind_fn_feed'>
             <div className='container'>
               <div className='feed__filter'>
                 <div className='filter__search'>
@@ -83,13 +78,13 @@ const TradeTokens = () => {
                     (e.target.value)}
                     value={searchItem}
                     />
-                    <a className='techwave_fn_button'>
+                    <a className='bitmind_fn_button'>
                       <span>Search</span>
                     </a>
                 </div>
               </div>
             </div>
-            <div className='techwave_fn_pricing'>
+            <div className='bitmind_fn_pricing'>
               <div className='container'>
                 <div className='pricing__tabs'>
                   <div className='pricing__tab active'>
@@ -101,19 +96,18 @@ const TradeTokens = () => {
                             <h2 className='title'>Token Pair Lists</h2>
                           </div>
                           <div className='pricing__item_list'>
-                            {
-                              tokens?.map((token, index)=>(
-                                <div 
+                            {tokens?.map((token, index)=>(
+                              <div 
                                   className='pricing__item_list_item' 
                                   key={index}
-                                  onClick={
-                                    (()=>
-                                      setTradeTokens(token), selectTokenPair())
+                                  onClick={(()=> 
+                                    setTradeToken(token), 
+                                    selectTokenPair())
                                   }
-                                  >
+                              >                      
                                 <h4 className='title'>{token.network}</h4>
                                 <p className='desc'>{token.fee}</p>                               
-                                </div>
+                              </div>
                               ))
                             }
                           </div>
@@ -131,38 +125,38 @@ const TradeTokens = () => {
                         <div className='item wide'></div>
                       </div>
                       <div className='pricing__fields'>
-                        {
-                          tokens?.map((token, 
-                            index)=>(
-                            <div className= 'item_row'>
-                                <div onClick={
-                                  (()=> setTradeTokens(token), 
-                                selectTokenPair(), setActive(index + 1))
-                                  
-                                }
-                                className={`item_row ${active == index + 1 ? "pricing__heading" : ""}`}
-                                >
-                                <span className='heading_text'>
-                                  {token.network}             
-                                </span>
-                              </div>
-                              <div className='item_col'>
-                                <span className='option_text'>
-                                  {token.token1}
-                                </span>
-                              </div>
-                              <div className='item_col'>
-                                <span className='option_text'>
-                                  {token.token2}
-                                </span>
-                              </div>
-                              <div className='item_col'>
-                                <span className='option_text'>
-                                  {token.fee}
-                                </span>
-                              </div>
-                            </div>
-                        ))}           
+                        {tokens?.map((token, index)=>(
+                        <div key={index}
+                          onClick={()=> (
+                            setTradeToken(token), 
+                            selectTokenPair(), 
+                            setActive(index + 1)
+                            )} 
+                        className= { `item_row ${active == index + 1 ? 'pricing__heading' : ''  
+                      }`}    
+                        >
+                        <div className='item_col'>                                         
+                          <span className='heading_text'>
+                            {token.network}
+                          </span>
+                        </div> 
+                        <div className='item_col'>
+                          <span className='option_text'>
+                            {token.token1}
+                          </span>
+                        </div>
+                        <div className='item_col'>
+                          <span className='option_text'>
+                            {token.token2}
+                          </span>
+                        </div>                      
+                        <div className='item_col'>
+                          <span className='option_text'>
+                            {token.fee}
+                          </span>
+                        </div>                        
+                        </div>
+                  ))}        
                       </div>
                     </div>
                   </div>
@@ -172,6 +166,7 @@ const TradeTokens = () => {
           </div>
         </div>
       </div>
+    <Footer/>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 
-//Internal Import
-import {} from '../../utils/index'
+//INTERNAL IMPORT
+import {shortenAddress} from '../../utils/index'
 import Footer from '../Global/Footer';
 
 
@@ -14,17 +14,17 @@ const [userDetails, setUserDetails] = useState([]);
   }, []);
   
   return (
-    <div className='techwave_fn_content'>
-      <div className='techwave_fn_page'>
-        <div className='techwave_fn_user_profile_page'>
-          <div className='techwave_fn_pagetitle'>
+    <div className='bitmind_fn_content'>
+      <div className='bitmind_fn_page'>
+        <div className='bitmind_fn_user_profile_page'>
+          <div className='bitmind_fn_pagetitle'>
             <h2 className='title'>User Profile</h2>
           </div>
           <div className='container small'>
-            <div className='techwave_fn_user_profile'>
+            <div className='bitmind_fn_user_profile'>
               <div className='user__profile'>
                 <div className='user_avatar'>
-                  <img src={userDetails?.image || 'img/crypto.png' } alt="" />
+                  <img src={userDetails?.image || 'img/light-logo.png' } alt="" />
                 </div>
 
                 <div className='user_details'>
@@ -38,13 +38,13 @@ const [userDetails, setUserDetails] = useState([]);
                     <li>
                       <div className='item'>
                         <h4 className='subtitle'>Username</h4>
-                        <h3 className='title'>{userDetails?.username || 'Update'}</h3>
+                        <h3 className='title'>{userDetails?.userName || 'Update'}</h3>
                       </div>
                     </li>
                     <li>
                       <div className='item'>
                         <h4 className='subtitle'>Address</h4>
-                        <h3 className='title'>{userDetails?.walletAddress || 'Update'}</h3>
+                        <h3 className='title'>{shortenAddress(userDetails?.walletAddress) || 'Update'}</h3>
                       </div>
                     </li>                    
                   </ul>
@@ -60,9 +60,9 @@ const [userDetails, setUserDetails] = useState([]);
                 <div className='plan_left'>
                   <h4 className='subtitle'>Your Key</h4>
                   <p className='info'>
-                    <span>Private Key</span>
+                    <span>Private Key: </span>
                     {' '}
-                  {userDetails?.privateKey || 'Update'}
+                  {shortenAddress(userDetails?.privateKey) || 'Update'}
                   </p>                  
                 </div>
               </div>

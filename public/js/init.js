@@ -4,7 +4,7 @@ $.fn.frenifyMoveCursorToEnd = function() {
     var e = this.val();
     return this.val("").val(e), this
 };
-var FrenifyTechWaveTime = new Date;
+var FrenifybitmindTime = new Date;
 ! function(e) {
     "use strict";
     var t = 0,
@@ -31,7 +31,7 @@ var FrenifyTechWaveTime = new Date;
             },
             popupMobile: function() {
                 if (window.matchMedia("(max-width: 767px)").matches) {
-                    var t = e(".techwave_fn_wrapper").width();
+                    var t = e(".bitmind_fn_wrapper").width();
                     e(".item__popup,.fn__nav_bar .item_popup").each(function() {
                         var a = e(this),
                             o = a.parent(),
@@ -60,7 +60,7 @@ var FrenifyTechWaveTime = new Date;
                         animationDuration: 0,
                         animation: "fade",
                         delay: 0,
-                        theme: "tooltipster-techwave",
+                        theme: "tooltipster-bitmind",
                         side: a
                     };
                     if (t.hasClass("menu__item") && !e("html").hasClass("panel-opened")) {
@@ -71,7 +71,7 @@ var FrenifyTechWaveTime = new Date;
                 })
             },
             fontDialog: function() {
-                var t = e(".techwave_fn_font");
+                var t = e(".bitmind_fn_font");
                 e(".font__trigger").off().on("click", function() {
                     return t.addClass("opened"), !1
                 }), t.find(".font__closer").off().on("click", function() {
@@ -83,11 +83,11 @@ var FrenifyTechWaveTime = new Date;
                 })
             },
             modelTabs: function() {
-                e(".techwave_fn_models .fn__tabs a").off().on("click", function() {
+                e(".bitmind_fn_models .fn__tabs a").off().on("click", function() {
                     var t = e(this);
                     if (!t.hasClass("active") && !o) {
                         o = !0, t.siblings().removeClass("active"), t.addClass("active");
-                        var a = t.closest(".techwave_fn_models");
+                        var a = t.closest(".bitmind_fn_models");
                         a.find(".models__results").addClass("loading"), setTimeout(function() {
                             a.find(".models__results").removeClass("loading"), a.find(".tab__item.active").removeClass("active"), e(t.attr("href")).addClass("active"), o = !1
                         }, 1500)
@@ -114,12 +114,12 @@ var FrenifyTechWaveTime = new Date;
             },
             negativePrompt: function() {
                 e("#negative_prompt").on("change", function() {
-                    this.checked ? e(".techwave_fn_image_generation_page .exclude_area").slideDown(200) : e(".techwave_fn_image_generation_page .exclude_area").slideUp(200)
+                    this.checked ? e(".bitmind_fn_image_generation_page .exclude_area").slideDown(200) : e(".bitmind_fn_image_generation_page .exclude_area").slideUp(200)
                 })
             },
             imageGenerationSidebar: function() {
-                e(".techwave_fn_image_generation_page .sidebar__trigger").off().on("click", function() {
-                    return e(".techwave_fn_wrapper").toggleClass("fn__has_sidebar"), !1
+                e(".bitmind_fn_image_generation_page .sidebar__trigger").off().on("click", function() {
+                    return e(".bitmind_fn_wrapper").toggleClass("fn__has_sidebar"), !1
                 })
             },
             rangeSlider: function() {
@@ -163,12 +163,12 @@ var FrenifyTechWaveTime = new Date;
                 })
             },
             anchor: function() {
-                e(".techwave_fn_doc_page .docsidebar li.menu-item-has-children > a").off().on("click", function() {
+                e(".bitmind_fn_doc_page .docsidebar li.menu-item-has-children > a").off().on("click", function() {
                     return e(this).siblings("ul").slideToggle(), !1
-                }), e().onePageNav && e(".techwave_fn_doc_page .docsidebar > ul").onePageNav()
+                }), e().onePageNav && e(".bitmind_fn_doc_page .docsidebar > ul").onePageNav()
             },
             aiChatBot__chat: function() {
-                e("#fn__chat_textarea").length && !e(".techwave_fn_intro").length && e("#fn__chat_textarea").focus(), e("#fn__chat_textarea").keypress(function(t) {
+                e("#fn__chat_textarea").length && !e(".bitmind_fn_intro").length && e("#fn__chat_textarea").focus(), e("#fn__chat_textarea").keypress(function(t) {
                     var a = t.keyCode ? t.keyCode : t.which;
                     if (13 === a && t.shiftKey);
                     else if (13 === a) return e(".fn__chat_comment button").trigger("click"), !1
@@ -187,7 +187,7 @@ var FrenifyTechWaveTime = new Date;
                             var h = '<li class="group__item"><div class="fn__chat_link active" href="#chat' + l + '"><span class="text">New Chat</span><input type="text" value="New Chat"><span class="options"><button class="trigger"><span></span></button><span class="options__popup"><span class="options__list"><button class="edit">Edit</button><button class="delete">Delete</button></span></span></span><span class="save_options"><button class="save"><img src="svg/check.svg" alt="" class="fn__svg"></button><button class="cancel"><img src="svg/close.svg" alt="" class="fn__svg"></button></span></div></li>';
                             e(".fn__chatbot .chat__group.new").length ? e(".fn__chatbot .chat__group.new ul").append(h) : e(".fn__chatbot .sidebar_content").prepend('<div class="chat__group"><h2 class="group__title">Today</h2><ul class="group__list">' + h + "</ul></div>"), r.imgToSVG(), r.aiChatBotOptions()
                         } else n.append(i);
-                        return a.val(""), a.siblings(".fn__hidden_textarea").val(""), r.aiChatBotTextareaHeight(), e(".techwave_fn_intro").length ? e("html, body").animate({
+                        return a.val(""), a.siblings(".fn__hidden_textarea").val(""), r.aiChatBotTextareaHeight(), e(".bitmind_fn_intro").length ? e("html, body").animate({
                             scrollTop: a.offset().top - e(window).height() + 100
                         }) : e("html, body").animate({
                             scrollTop: e(document).height() - e(window).height()
@@ -227,21 +227,21 @@ var FrenifyTechWaveTime = new Date;
                     },
                     doc: {
                         type: "url",
-                        description: "visit online documentation for TechWave HTML template",
+                        description: "visit online documentation for bitmind HTML template",
                         append: !1,
-                        url: "https://frenify.com/work/envato/frenify/html/techwave/doc"
+                        url: "https://frenify.com/work/envato/frenify/html/bitmind/doc"
                     },
                     support: {
                         type: "url",
-                        description: "if you have any questions regarding TechWave HTML template feel free and contact us by this command",
+                        description: "if you have any questions regarding bitmind HTML template feel free and contact us by this command",
                         append: !1,
-                        url: "https://themeforest.net/item/techwave-ai-html-dashboard-for-image-generation-chat-bot/46197058/support/contact"
+                        url: "https://themeforest.net/item/bitmind-ai-html-dashboard-for-image-generation-chat-bot/46197058/support/contact"
                     },
                     purchase: {
                         type: "url",
                         description: "open the template description page on themeforest to purchase it",
                         append: !1,
-                        url: "https://themeforest.net/item/techwave-ai-html-dashboard-for-image-generation-chat-bot/46197058"
+                        url: "https://themeforest.net/item/bitmind-ai-html-dashboard-for-image-generation-chat-bot/46197058"
                     },
                     youtube: {
                         type: "url",
@@ -316,14 +316,14 @@ var FrenifyTechWaveTime = new Date;
                         a = m.append
                     } else c = !0
                 } else c = !0;
-                c && (t = '<p>I only understand some commands. Of course, this is a fixable problem. Buy this template and implement AI and that\'s it. Go to the template site where you can buy? Visit item\'s website: <a href="https://themeforest.net/user/frenify/portfolio" target="_blank">TechWave</a></p><p>Write <frenify_main>/commands</frenify_main> to list all available commands.'), a && (e(".fn__chat_comment button").addClass("disabled"), setTimeout(function() {
-                    e(".fn__chatbot .chat__item.active").append('<div class="chat__box bot__chat"><div class="author"><span>Frenify Bot</span></div><div class="chat"><frenify_typing><h3><span>Typing...</frenify></h3></div></div>'), e(".techwave_fn_intro").length ? e("html, body").animate({
+                c && (t = '<p>I only understand some commands. Of course, this is a fixable problem. Buy this template and implement AI and that\'s it. Go to the template site where you can buy? Visit item\'s website: <a href="https://themeforest.net/user/frenify/portfolio" target="_blank">bitmind</a></p><p>Write <frenify_main>/commands</frenify_main> to list all available commands.'), a && (e(".fn__chat_comment button").addClass("disabled"), setTimeout(function() {
+                    e(".fn__chatbot .chat__item.active").append('<div class="chat__box bot__chat"><div class="author"><span>Frenify Bot</span></div><div class="chat"><frenify_typing><h3><span>Typing...</frenify></h3></div></div>'), e(".bitmind_fn_intro").length ? e("html, body").animate({
                         scrollTop: e("#fn__chat_textarea").offset().top - e(window).height() + 100
                     }) : e("html, body").animate({
                         scrollTop: e(document).height() - e(window).height()
                     })
                 }, 100), setTimeout(function() {
-                    e(".fn__chatbot .chat__item.active .chat__box.bot__chat:last-child .chat").html(t), e(".fn__chat_comment button").removeClass("disabled"), e(".techwave_fn_intro").length ? e("html, body").animate({
+                    e(".fn__chatbot .chat__item.active .chat__box.bot__chat:last-child .chat").html(t), e(".fn__chat_comment button").removeClass("disabled"), e(".bitmind_fn_intro").length ? e("html, body").animate({
                         scrollTop: e("#fn__chat_textarea").offset().top - e(window).height() + 100
                     }) : e("html, body").animate({
                         scrollTop: e(document).height() - e(window).height()
@@ -424,7 +424,7 @@ var FrenifyTechWaveTime = new Date;
                 })
             },
             billingProgress: function() {
-                e(".techwave_fn_user_billing .progress").each(function() {
+                e(".bitmind_fn_user_billing .progress").each(function() {
                     var t = e(this);
                     t.waypoint({
                         handler: function() {
@@ -453,7 +453,7 @@ var FrenifyTechWaveTime = new Date;
                 })
             },
             pricingTab: function() {
-                e(".techwave_fn_pricing .toggle_in").each(function() {
+                e(".bitmind_fn_pricing .toggle_in").each(function() {
                     var t = e(this),
                         a = t.find(".active"),
                         o = a.offset().left - t.offset().left;
@@ -461,11 +461,11 @@ var FrenifyTechWaveTime = new Date;
                         left: o,
                         width: a.outerWidth(!0, !0)
                     })
-                }), e(".techwave_fn_pricing .toggle_in a").off().on("click", function() {
+                }), e(".bitmind_fn_pricing .toggle_in a").off().on("click", function() {
                     var t = e(this);
                     if (!t.hasClass("active")) {
                         var a = t.closest(".toggle_in"),
-                            o = t.closest(".techwave_fn_pricing"),
+                            o = t.closest(".bitmind_fn_pricing"),
                             n = t.offset().left - a.offset().left;
                         o.find(".pricing__tab.active").removeClass("active"), e(t.attr("href")).addClass("active"), t.siblings().removeClass("active"), t.addClass("active"), a.find(".bg").css({
                             left: n,
@@ -476,46 +476,46 @@ var FrenifyTechWaveTime = new Date;
                 })
             },
             feedFilters: function() {
-                e('.techwave_fn_feed .filter__select input[type="checkbox"]').change(function() {
+                e('.bitmind_fn_feed .filter__select input[type="checkbox"]').change(function() {
                     var t = e(this),
                         a = t.is(":checked"),
-                        o = t.closest(".techwave_fn_feed"),
+                        o = t.closest(".bitmind_fn_feed"),
                         n = o.find(".fn__gallery_items .item");
                     a ? (n.addClass("select__ready"), o.find(".fn__selection_box").slideDown(200)) : (n.removeClass("select__ready"), o.find(".fn__selection_box").slideUp(200))
                 }), e(".fn__selectable_item").off().on("click", function() {
                     var a = e(this),
-                        o = a.closest(".techwave_fn_community_page");
+                        o = a.closest(".bitmind_fn_community_page");
                     return o.find(".fn__gallery_items .item"), a.hasClass("selected") ? (a.removeClass("selected"), t--) : (a.addClass("selected"), t++), o.find(".fn__selection_box .count").text(t), !1
-                }), e(".techwave_fn_feed .fn__tabs a").on("click", function() {
+                }), e(".bitmind_fn_feed .fn__tabs a").on("click", function() {
                     var t = e(this);
                     if (!t.hasClass("active") && !a) {
                         a = !0, t.siblings().removeClass("active"), t.addClass("active");
-                        var o = t.closest(".techwave_fn_feed");
+                        var o = t.closest(".bitmind_fn_feed");
                         o.find(".feed__results").addClass("loading"), setTimeout(function() {
                             o.find(".feed__results").removeClass("loading"), a = !1, r.galleryIsotope()
                         }, 1500)
                     }
                     return !1
-                }), e(".techwave_fn_feed .filter__sorting a").on("click", function() {
+                }), e(".bitmind_fn_feed .filter__sorting a").on("click", function() {
                     var t = e(this);
                     if (!t.hasClass("enabled") && !a) {
                         a = !0, t.siblings().removeClass("enabled").addClass("disabled"), t.removeClass("disabled").addClass("enabled");
-                        var o = t.closest(".techwave_fn_feed");
+                        var o = t.closest(".bitmind_fn_feed");
                         o.find(".feed__results").addClass("loading"), setTimeout(function() {
                             o.find(".feed__results").removeClass("loading"), a = !1
                         }, 1500)
                     }
                     return !1
-                }), e('.techwave_fn_feed .filter__upscaled input[type="checkbox"]').change(function() {
+                }), e('.bitmind_fn_feed .filter__upscaled input[type="checkbox"]').change(function() {
                     var t = e(this);
                     t.is(":checked");
-                    var a = t.closest(".techwave_fn_feed");
+                    var a = t.closest(".bitmind_fn_feed");
                     a.find(".feed__results").addClass("loading"), setTimeout(function() {
                         a.find(".feed__results").removeClass("loading")
                     }, 1500)
-                }), e(".techwave_fn_feed .filter__search a").on("click", function() {
+                }), e(".bitmind_fn_feed .filter__search a").on("click", function() {
                     if (!a) {
-                        var t = e(this).closest(".techwave_fn_feed");
+                        var t = e(this).closest(".bitmind_fn_feed");
                         t.find(".feed__results").addClass("loading"), setTimeout(function() {
                             t.find(".feed__results").removeClass("loading"), a = !1
                         }, 1500)
@@ -524,7 +524,7 @@ var FrenifyTechWaveTime = new Date;
                 })
             },
             report: function() {
-                var t = e(".techwave_fn_report");
+                var t = e(".bitmind_fn_report");
                 e(".fn__report").off().on("click", function() {
                     return e(this).data("id"), t.hasClass("opened") ? t.removeClass("opened") : t.addClass("opened"), !1
                 }), t.find(".cancel").off().on("click", function() {
@@ -571,12 +571,12 @@ var FrenifyTechWaveTime = new Date;
                     a = 0;
                 e(".fn__gallery_items .item").off().on("click", function() {
                     var n = e(this);
-                    return n.data("id"), n.hasClass("select__ready") || (o.scrollTop(0), a = document.documentElement.style.getPropertyValue("--techwave-scroll-y"), t.css({
+                    return n.data("id"), n.hasClass("select__ready") || (o.scrollTop(0), a = document.documentElement.style.getPropertyValue("--bitmind-scroll-y"), t.css({
                         position: "fixed",
                         top: a
                     }), t.addClass("fn__lightbox_mode"), o.addClass("opened")), !1
                 });
-                var o = e(".techwave_fn_img_lightbox");
+                var o = e(".bitmind_fn_img_lightbox");
                 o.find(".fn__closer").off().on("click", function() {
                     t.removeClass("fn__lightbox_mode"), o.removeClass("opened"), t.css({
                         position: "relative",
@@ -604,19 +604,19 @@ var FrenifyTechWaveTime = new Date;
                 })
             },
             accordion: function() {
-                e(".techwave_fn_accordion").each(function() {
+                e(".bitmind_fn_accordion").each(function() {
                     e(this).find(".opened .acc__content").slideDown(300)
-                }), e(".techwave_fn_accordion .acc__header").on("click", function() {
+                }), e(".bitmind_fn_accordion .acc__header").on("click", function() {
                     var t = e(this),
                         a = t.closest(".acc__item"),
-                        o = t.closest(".techwave_fn_accordion"),
+                        o = t.closest(".bitmind_fn_accordion"),
                         n = a.find(".acc__content"),
                         s = o.data("type");
                     a.hasClass("opened") ? (a.removeClass("opened"), n.slideUp(300)) : ("accordion" === s && (o.find(".acc__item").removeClass("opened"), o.find(".acc__content").slideUp(300)), a.addClass("opened"), n.slideDown(300))
                 })
             },
             search: function() {
-                var t = e(".techwave_fn_searchbar"),
+                var t = e(".bitmind_fn_searchbar"),
                     a = t.find(".search__input"),
                     o = t.find(".search__results");
                 e(".fn__nav_bar .bar__item_search .item_opener").on("click", function() {
@@ -655,9 +655,9 @@ var FrenifyTechWaveTime = new Date;
                 })
             },
             movingSubMenuForLeftPanel: function() {
-                var t = e(".techwave_fn_fixedsub"),
-                    a = e(".techwave_fn_leftpanel .group__list > li"),
-                    o = e(".techwave_fn_content");
+                var t = e(".bitmind_fn_fixedsub"),
+                    a = e(".bitmind_fn_leftpanel .group__list > li"),
+                    o = e(".bitmind_fn_content");
 
                 function n() {
                     o.on("mouseenter", function() {
@@ -670,7 +670,7 @@ var FrenifyTechWaveTime = new Date;
                         i = s.html();
                     s.length ? (a.removeClass("hovered"), o.addClass("hovered").parent().addClass("hovered"), t.removeClass("opened").children("ul").html("").html(i), t.addClass("opened")) : (a.removeClass("hovered"), t.removeClass("opened"), o.removeClass("hovered").parent().removeClass("hovered"));
                     var r = o.offset().top,
-                        l = e(".techwave_fn_leftpanel .leftpanel_content").offset().top;
+                        l = e(".bitmind_fn_leftpanel .leftpanel_content").offset().top;
                     t.css({
                         top: r - l
                     }), n()
@@ -678,9 +678,9 @@ var FrenifyTechWaveTime = new Date;
             },
             panelResize: function() {
                 var t = e("html");
-                e(".techwave_fn_leftpanel .desktop_closer").off().on("click", function() {
+                e(".bitmind_fn_leftpanel .desktop_closer").off().on("click", function() {
                     return t.hasClass("panel-opened") ? (t.removeClass("panel-opened"), localStorage.frenify_panel = "") : (t.addClass("panel-opened"), localStorage.frenify_panel = "panel-opened"), !1
-                }), e(".techwave_fn_leftpanel .mobile_closer").off().on("click", function() {
+                }), e(".bitmind_fn_leftpanel .mobile_closer").off().on("click", function() {
                     return t.hasClass("mobile-panel-opened") ? t.removeClass("mobile-panel-opened") : t.addClass("mobile-panel-opened"), !1
                 })
             },
@@ -693,7 +693,7 @@ var FrenifyTechWaveTime = new Date;
                 }), e(window).on("click", function() {
                     t.removeClass("opened")
                 }), e(".fn__nav_bar .bar__item_skin .item_opener").off().on("click", function() {
-                    return "light" === e("html").attr("data-techwave-skin") ? (e("html").attr("data-techwave-skin", "dark"), localStorage.frenify_skin = "dark") : (e("html").attr("data-techwave-skin", "light"), localStorage.frenify_skin = "light"), e(".bar__item_user,.bar__item_language,.bar__item_notification").removeClass("opened"), !1
+                    return "light" === e("html").attr("data-bitmind-skin") ? (e("html").attr("data-bitmind-skin", "dark"), localStorage.frenify_skin = "dark") : (e("html").attr("data-bitmind-skin", "light"), localStorage.frenify_skin = "light"), e(".bar__item_user,.bar__item_language,.bar__item_notification").removeClass("opened"), !1
                 });
                 var a = e(".fn__nav_bar .bar__item_language");
                 a.find(".item_opener").on("click", function(t) {
@@ -723,14 +723,14 @@ var FrenifyTechWaveTime = new Date;
                 })
             },
             navSubMenu: function() {
-                e(".techwave_fn_leftpanel .menu-item-has-children > a").off().on("click", function() {
+                e(".bitmind_fn_leftpanel .menu-item-has-children > a").off().on("click", function() {
                     var t = e(this).closest("li");
                     return t.hasClass("closed") ? (t.removeClass("closed"), t.children("ul").slideDown(200)) : (t.addClass("closed"), t.children("ul").slideUp(200)), !1
                 })
             },
             preloader: function() {
-                var t = e(".techwave_fn_preloader"),
-                    a = new Date - FrenifyTechWaveTime,
+                var t = e(".bitmind_fn_preloader"),
+                    a = new Date - FrenifybitmindTime,
                     o = 4e3;
                 a < o ? o -= a : o = 0, t.hasClass("wait_for_full_preloading_animation") || (o = 0), setTimeout(function() {
                     t.addClass("fn_ready")
@@ -761,7 +761,7 @@ var FrenifyTechWaveTime = new Date;
             }
         };
     e(document).ready(function() {
-        r.init(), e(":root").css("--techwave-scroll-y", -1 * window.scrollY + "px"), setTimeout(function() {
+        r.init(), e(":root").css("--bitmind-scroll-y", -1 * window.scrollY + "px"), setTimeout(function() {
             r.galleryIsotope()
         }, 500)
     }), e(window).on("resize", function() {
@@ -771,6 +771,6 @@ var FrenifyTechWaveTime = new Date;
             r.galleryIsotope()
         }, 1e3)
     }), e(window).on("scroll", function() {
-        e(":root").css("--techwave-scroll-y", -1 * window.scrollY + "px")
+        e(":root").css("--bitmind-scroll-y", -1 * window.scrollY + "px")
     })
 }(jQuery);

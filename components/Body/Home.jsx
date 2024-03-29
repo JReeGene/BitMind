@@ -5,12 +5,12 @@ import {  Footer  } from '../index';
 
 const Home = () => {
   return (
-    <div className='techwave_fn_content'>
-      <div className='techwave_fn_page'>
-        <div className='techwave_fn_home'>
+    <div className='bitmind_fn_content'>
+      <div className='bitmind_fn_page'>
+        <div className='bitmind_fn_home'>
           <div className='section_home'>
             <div className='section_left'>
-              <div className='techwave_fn_title_holder'>
+              <div className='bitmind_fn_title_holder'>
                 <h1 className='title'>Automate Your Crypto Trading</h1>
 
               <p className='desc'>
@@ -18,7 +18,7 @@ const Home = () => {
               </p>
             </div>
          
-            <div className='techwave_fn_interactive_list'>
+            <div className='bitmind_fn_interactive_list'>
               <ul>
                 <li>
                   <div className='item'>

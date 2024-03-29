@@ -28,12 +28,12 @@ const userSchema = new mongoose.Schema({
     },
     passwordConfirm: {
         type: String,
-        required: [true, 'Please enter your pasword'],
+        required: [true, 'Please confirm your password'],
         validate: {
             validator: function(el){
                 return el === this.password
             },
-            message: 'Password does not match!',
+            message: 'Passwords do not match!',
         }
     },
 });
@@ -41,13 +41,13 @@ const userSchema = new mongoose.Schema({
 //MIDDLEWARE
 
 userSchema.pre('save', async function(next){
-    //Only run this function if the passworkd was changed
+    //Only run this function if the password was changed
     if(!this.isModified('password')) return next();
 
-    //Has the passowrd with cost of 12
+    //Has the password with cost of 12
     this.password = await bcrypt.hash(this.password, 12);
-
-    //Delete passwordconfirm field
+    
+    //Delete password confirm field
     this.passwordConfirm = undefined;
     next();
 });
@@ -59,7 +59,7 @@ userSchema.pre('save', function(next){
 });
 
 userSchema.pre(/^find/, function(next){
-    //This points to the current querry
+    //This points to the current query
     this.find({active: { $ne: false }});
     next();
 });

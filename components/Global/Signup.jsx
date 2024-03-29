@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import Footer from '../Global/Footer';
 
 const Signup = ({ axios, setActiveComponent, notifyError, notifySuccess }) => {
   const [user, setUser] = useState({
@@ -24,19 +25,22 @@ const Signup = ({ axios, setActiveComponent, notifyError, notifySuccess }) => {
       notifySuccess('Setting you up in a few...');
       try{
         //API call
-        const response = await axios({
-          method: 'POST',
-          url: `/api/v1/user/signup`,
-          withCredentials: true,
-          data:{
-            name: user.name,
-            email: user.email,
-            password: user.password,
-            passwordConfirm: user.passwordConfirm,
+        const response = await axios(
+          {
+            method: 'POST',
+            url: `/api/v1/user/signup`,
+            withCredentials: true,
+            data:
+              {
+                name: user.name,
+                email: user.email,
+                password: user.password,
+                passwordConfirm: user.passwordConfirm,
+              },
           }
-        })
+        );
 
-        if(response.data.status === 'success'){
+        if(response.data.status == 'success'){
           notifySuccess('Account created successfully')
           localStorage.setItem(
             'USER_MEMBERSHIP',
@@ -48,7 +52,7 @@ const Signup = ({ axios, setActiveComponent, notifyError, notifySuccess }) => {
           );
           localStorage.setItem(
             'CryptoAUT_TOKEN',
-            response.data.user.token
+            response.data.token
           );
           window.location.reload();
         }else{
@@ -58,37 +62,53 @@ const Signup = ({ axios, setActiveComponent, notifyError, notifySuccess }) => {
         console.log(error)
       }
   };
+  console.log(user)
 
   return (
-  <div className='techwave_fn_sign'>
+  <div className='bitmind_fn_sign'>
     <div className='sign__content'>
-      <h1 className='logo'>Designed by JRee</h1>
+      <br/>
+      <br/>
+      <h1 style={
+                  {
+                    textAlign: 'center',
+                    fontFamily: 'sans-serif',
+                    fontSize: '20px'                  
+                  }
+                }>
+                  BITMIND
+      </h1>
       <form className='login'>
         <div className='form__content'>
           <div className='form__title'>Sign Up</div>
+          
           <div className='form__username'>
             <label htmlFor='user__login'>Name</label>
             <input type='text' className='input' onChange={(e)=>
             handleFormFieldChange('name', e)} />
           </div>
+          
           <div className='form__username'>
             <label htmlFor='user__login'>Email</label>
             <input type='text' className='input' onChange={(e)=>
             handleFormFieldChange('email', e)} />
           </div>
+          
           <div className='form__username'>
             <label htmlFor='user__login'>Password</label>
             <input type='text' className='input' onChange={(e)=>
             handleFormFieldChange('password', e)} />
           </div>
+          
           <div className='form__username'>
             <label htmlFor='user__login'>Confirm Password</label>
             <input type='text' className='input' onChange={(e)=>
             handleFormFieldChange('passwordConfirm', e)} />
           </div>
+          
           <div className='form__alternative'>
             <a onClick={(e)=>createAcccount(e)}
-            className='techwave_fn_button'            
+            className='bitmind_fn_button'            
             >
               <span>Create Account</span>
             </a>
@@ -96,9 +116,11 @@ const Signup = ({ axios, setActiveComponent, notifyError, notifySuccess }) => {
         </div>         
       </form>
       <div className='sign__desc'>
-        <p>Not a User?
+        <p>Have an Account?
           <a onClick={()=>setActiveComponent('Login')}> Login</a>
         </p>
+        <br />
+        <Footer/>
       </div>
     </div>
   </div>
