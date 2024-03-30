@@ -12,7 +12,7 @@ import {
         MovingSubmenu, 
         Preloader, 
         Search,  
-        Sidebar, 
+        SideBar, 
         Signup,    
         Home, 
         TradeTokens, 
@@ -129,7 +129,7 @@ const index = ()=>{
                 <Header 
                   networkName={networkName}
                   setActiveComponent={setActiveComponent}/>
-                <Sidebar 
+                <SideBar 
                   setActiveComponent= {setActiveComponent}/>            
                 {
                   activeComponent == 'Home' ? (
