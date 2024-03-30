@@ -13,8 +13,7 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
     },
     membershipType:{
-        type: String,
-        lowercase: true,
+        type: String,        
         default: 'notMember',
     },
     role: {

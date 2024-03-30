@@ -70,7 +70,7 @@ return (
                                     )
                                   }
                                   >
-                                    &nbsp; &nbsp; private key<FaRegCopy />
+                                    &nbsp;private key<FaRegCopy />
                                 </span>
                               </p>
                             </div>

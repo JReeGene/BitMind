@@ -180,7 +180,7 @@ const Price = ({ buyMembership, setMembershipType }) => {
                                 Buy Enterprise
                             </a>
                           </p>
-                          </div>
+                        </div>
                       </div>                           
                       <div className='pricing__heading'>
                         <div className='item'>
@@ -189,29 +189,34 @@ const Price = ({ buyMembership, setMembershipType }) => {
                         <div className='item wide'></div>                        
                       </div>
                       <div className='pricing__fields'>
-                        {['Crypto', 
-                        'DH Tokens', 
-                        'Running Bot', 
-                        'Matic Trading', 
-                        'Any Exchange Trade', 
-                        'Unlimited Data.' 
-                      ].map((item, index)=>(
-                          <div className='item_row'>
-                            <div className='item_col'>
-                              <span className='heading_text'>{item}</span>
+                        {
+                          [
+                            'Crypto', 
+                            'DH Tokens', 
+                            'Running Bot', 
+                            'Matic Trading', 
+                            'Any Exchange Trade', 
+                            'Unlimited Data.' 
+                          ].map
+                          (
+                            (item, index)=>(
+                            <div className='item_row'>
+                              <div className='item_col'>
+                                <span className='heading_text'>{item}</span>
+                              </div>
+                              <div className='item_col'>
+                                <span className='heading_text'>5, {index + 1}00</span>
+                              </div>
+                              <div className='item_col'>
+                                <span className='heading_text'>5, {index + 4}00</span>
+                              </div>
+                              <div className='item_col'>
+                                <span className='heading_text'>5, {index + 6}00</span>
+                              </div>                          
                             </div>
-                            <div className='item_col'>
-                              <span className='heading_text'>5, {index + 1}00</span>
-                            </div>
-                            <div className='item_col'>
-                              <span className='heading_text'>5, {index + 4}00</span>
-                            </div>
-                            <div className='item_col'>
-                              <span className='heading_text'>5, {index + 6}00</span>
-                            </div>
-                          
-                          </div>
-                        ))}
+                            )
+                          )
+                        }
                       </div>                      
                     </div>
                   </div>

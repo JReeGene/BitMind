@@ -178,7 +178,7 @@ const index = ()=>{
 
                   activeComponent == 'Add Token Pair' ? (
                 <AddTokenPair />) : 
-                      ''
+                    ''
                 }
               </div>
             </div>

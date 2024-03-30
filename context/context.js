@@ -220,12 +220,15 @@ export const PROVIDER = ({ children }) => {
 
             const listTransaction = localStorage.getItem('LIVE_TRANSACTION');
             if(listTransaction){
-                transactionArray = JSON.parse(localStorage.getItem('LIVE_TRANSACTION'));
+                transactionArray = JSON.parse(localStorage.getItem(
+                    'LIVE_TRANSACTION'));
                 transactionArray.push(liveTransaction);
-                localStorage.setItem('LIVE_TRANSACTION', JSON.stringify(transactionArray));
+                localStorage.setItem(
+                    'LIVE_TRANSACTION', JSON.stringify(transactionArray));
             }else{
                 transactionArray.push(liveTransaction);
-                localStorage.setItem('LIVE_TRANSACTION', JSON.stringify(transactionArray));
+                localStorage.setItem(
+                    'LIVE_TRANSACTION', JSON.stringify(transactionArray));
             }
             setTradingCount(transactionArray.length + 1);
             console.log(transactionArray);
