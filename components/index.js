@@ -6,7 +6,7 @@ import Login from './Global/Login';
 import MovingSubmenu from './Global/MovingSubmenu';
 import Preloader from './Global/Preloader';
 import Search from './Global/Search';
-import Sidebar from './Global/Sidebar';
+import SideBar from './Global/SideBar';
 import Signup from './Global/Signup';
 
 
@@ -30,7 +30,7 @@ export {
     MovingSubmenu, 
     Preloader, 
     Search,  
-    Sidebar, 
+    SideBar, 
     Signup, 
     Home, 
     TradeTokens, 
