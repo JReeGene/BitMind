@@ -60,9 +60,9 @@ const index = ()=>{
     setNetworkName(network?.networkName);
 
     if(auth == null || userBackEndID == null){ //Place to CHECK
-      setActiveComponent('Signup')
+      setActiveComponent('Home')//Signup
     }else{
-      setActiveComponent('Home');
+      setActiveComponent('Home');//Home
       setAuthBackEndID(userBackEndID);
     }
   }, []);
