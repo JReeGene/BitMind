@@ -8,7 +8,7 @@ import Preloader from './Global/Preloader';
 import Search from './Global/Search';
 import Sidebar from './Global/Sidebar';
 import Signup from './Global/Signup';
-import UseTimeout from './Global/UseTimeout';
+
 
 //Body COMPONENTS
 import Home from './Body/Home';
@@ -32,7 +32,6 @@ export {
     Search,  
     Sidebar, 
     Signup, 
-    UseTimeout, 
     Home, 
     TradeTokens, 
     TopExchangeTokens, 

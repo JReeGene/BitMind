@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Wallet, ethers } from 'ethers';
 import axios from 'axios';
-import { local } from 'web3modal';
+// import { local } from 'web3modal';
 
 //INTERNAL IMPORTS
 export const CONTEXT = React.createContext();

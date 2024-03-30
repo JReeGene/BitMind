@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 //INTERNAL IMPORTS
 import { Footer } from '../index'
-import { local } from 'web3modal';
+// import { local } from 'web3modal';
 
 function TradeTokens() {
   const [search, setSearch] = useState('');
